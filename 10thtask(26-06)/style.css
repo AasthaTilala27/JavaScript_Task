@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:black;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:40px;
+}
+
+img{
+    width:220px;
+}
+
+button{
+
+    border:none;
+    padding:15px 35px;
+    font-size:22px;
+    border-radius:12px;
+    background:green;
+    color:white;
+    cursor:pointer;
+
+}

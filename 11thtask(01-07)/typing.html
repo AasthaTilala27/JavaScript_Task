@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(31, 43, 96);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        div {
+            background-color: rgb(26, 25, 25);
+            font-family: calibri;
+            font-size: 32px;
+            padding: 20px;
+            color: white;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: lime;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        main {
+            background-color: black;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-family: calibri;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <main>
+            Right : <b>0</b>
+        </main>
+        <main>
+            Wrong : <b>0</b>
+        </main>
+        <main>
+            Space : <b>0</b>
+        </main>
+        <main>
+            UPPER : <b>0</b>
+        </main>
+        <main>
+            LOWER : <b>0</b>
+        </main>
+    </section>
+    <div>
+        This is a Javascript.
+    </div>
+
+
+    <script>
+        var strdata = document.querySelector('div').innerText;
+        document.querySelector('div').innerHTML = "";
+        for (const element of strdata) {
+            document.querySelector('div').innerHTML += `<span>${element}</span>`;
+        }
+        var index = 0;
+
+        var right = 0;
+        var wrong = 0;
+        var space = 0;
+        var upper = 0;
+        var lower = 0;
+
+
+
+        document.body.onkeypress = function (event) {
+
+            if (index >= document.querySelectorAll('span').length) {
+                return;
+            }
+            if (event.key == document.querySelectorAll('span')[index].innerText) {
+                document.querySelectorAll('span')[index].classList.add('success');
+                right++;
+                document.querySelectorAll('main b')[0].innerText = right;
+            } else {
+                document.querySelectorAll('span')[index].classList.add('error');
+                wrong++;
+                document.querySelectorAll('main b')[1].innerText = wrong;
+            }
+
+            if (event.key == " ") {
+                space++;
+                document.querySelectorAll('main b')[2].innerText = space;
+            }
+            else if (event.key >= 'A' && event.key <= 'Z') {
+                upper++;
+                document.querySelectorAll('main b')[3].innerText = upper;
+            }
+            else if (event.key >= 'a' && event.key <= 'z') {
+                lower++;
+                document.querySelectorAll('main b')[4].innerText = lower;
+            }
+
+            index++;
+        }
+    </script>
+</body>
+
+</html>
